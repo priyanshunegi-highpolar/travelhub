@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -83,7 +84,7 @@ export default function CitiesSection() {
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Popular Destinations in India</h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg">Explore India's most beautiful states and cities</p>
+          <p className="text-gray-600 dark:text-gray-400 text-lg">Explore India&apos;s most beautiful states and cities</p>
         </div>
 
         <div className="relative">
@@ -102,10 +103,11 @@ export default function CitiesSection() {
                     onClick={() => handleStateClick(destination.country)}
                     className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition"
                   >
-                    <img
+                    <Image
                       src={destination.image}
                       alt={destination.country}
-                      className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
+                      fill
+                      className="object-cover group-hover:scale-110 transition duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                     <div className="absolute bottom-6 left-6 text-white">

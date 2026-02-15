@@ -17,7 +17,23 @@ export default function HotelDetailsPage({ params }: { params: Promise<{ id: str
   const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState(1);
 
-  const hotelDetails: Record<string, any> = {
+  const hotelDetails: Record<string, {
+    id: number;
+    name: string;
+    location: string;
+    rating: number;
+    reviews: string;
+    price: string;
+    images: string[];
+    description: string;
+    amenities: string[];
+    highlights: string[];
+    checkIn: string;
+    checkOut: string;
+    address: string;
+    phone: string;
+    email: string;
+  }> = {
     1: {
       id: 1,
       name: "The Taj Palace Mumbai",
@@ -241,7 +257,7 @@ export default function HotelDetailsPage({ params }: { params: Promise<{ id: str
   const taxes = Math.round(roomTotal * 0.12);
   const totalAmount = roomTotal + serviceFee + taxes;
 
-  const amenityIcons: { [key: string]: any } = {
+  const amenityIcons: Record<string, React.ComponentType<{ className?: string }>> = {
     "Free WiFi": Wifi,
     "Swimming Pool": Wind,
     "Restaurant": Utensils,

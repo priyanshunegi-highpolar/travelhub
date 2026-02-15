@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, ArrowRight } from "lucide-react";
@@ -53,10 +54,11 @@ export default function NewsSection() {
             <Card key={article.id} className="overflow-hidden hover:shadow-xl transition group bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
               <a href={article.link} target="_blank" rel="noopener noreferrer">
                 <div className="relative h-48">
-                  <img
+                  <Image
                     src={article.image}
                     alt={article.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
+                    fill
+                    className="object-cover group-hover:scale-110 transition duration-300"
                   />
                 </div>
               </a>

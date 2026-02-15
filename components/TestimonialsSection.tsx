@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { reviewData } from "@/data/data";
@@ -48,14 +49,15 @@ export default function TestimonialsSection() {
                   ))}
                 </div>
                 
-                <p className="text-gray-700 dark:text-gray-300 mb-6 line-clamp-4 italic leading-relaxed">"{review.review}"</p>
+                <p className="text-gray-700 dark:text-gray-300 mb-6 line-clamp-4 italic leading-relaxed">&quot;{review.review}&quot;</p>
                 
                 <div className="flex items-center gap-3 pt-4 border-t border-gray-200 dark:border-gray-700">
                   <div className="relative h-14 w-14 rounded-full overflow-hidden ring-2 ring-blue-500 dark:ring-blue-400">
-                    <img
+                    <Image
                       src={review.image}
                       alt={review.name}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
                   <div>

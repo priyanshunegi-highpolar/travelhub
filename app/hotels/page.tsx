@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Star, MapPin, Search, SlidersHorizontal, Calendar, Users, X } from "lucide-react";
 
-export default function HotelsPage() {
+function HotelsContent() {
   const searchParams = useSearchParams();
   const stateParam = searchParams.get("state");
   
@@ -262,5 +262,14 @@ export default function HotelsPage() {
       </main>
       <Footer />
     </>
+  );
+}
+
+
+export default function HotelsPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div></div>}>
+      <HotelsContent />
+    </Suspense>
   );
 }
