@@ -19,8 +19,8 @@ export default function HotelsSection() {
     <section id="hotels" className="py-16 px-4 bg-white dark:bg-gray-950">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Recommended Hotels</h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg">Handpicked hotels for your perfect stay</p>
+          <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Featured Tour Packages</h2>
+          <p className="text-gray-600 dark:text-gray-400 text-lg">Handpicked tour packages for unforgettable experiences</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -61,11 +61,11 @@ export default function HotelsSection() {
                   </div>
                   <div className="text-right">
                     <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">₹{hotel.price}</span>
-                    <span className="text-gray-500 dark:text-gray-400 text-sm">/night</span>
+                    <span className="text-gray-500 dark:text-gray-400 text-sm">/person</span>
                   </div>
                 </div>
                 <Link href={`/hotels/${hotel.id}`}>
-                  <Button className="w-full">Book Now</Button>
+                  <Button className="w-full">View Package</Button>
                 </Link>
               </CardContent>
             </Card>
@@ -75,7 +75,7 @@ export default function HotelsSection() {
         <div className="text-center mt-12">
           <Link href="/hotels">
             <Button size="lg" variant="outline" className="gap-2">
-              View All Hotels <ArrowRight className="h-5 w-5" />
+              View All Packages <ArrowRight className="h-5 w-5" />
             </Button>
           </Link>
         </div>

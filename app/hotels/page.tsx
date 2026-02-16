@@ -27,18 +27,18 @@ function HotelsContent() {
   const states = ["All States", "Maharashtra", "Rajasthan", "Kerala", "Goa", "Karnataka", "Tamil Nadu", "Himachal Pradesh", "Uttarakhand", "Delhi"];
 
   const allHotels = [
-    { id: 1, image: "/images/h1.jpg", name: "The Taj Palace Mumbai", location: "Colaba, Mumbai", state: "Maharashtra", rating: 4.6, reviews: "2,345", price: "5999" },
-    { id: 2, image: "/images/h2.jpg", name: "Oberoi Udaipur Luxury Resort", location: "Lake Pichola, Udaipur", state: "Rajasthan", rating: 4.7, reviews: "1,912", price: "7500" },
-    { id: 3, image: "/images/h3.jpg", name: "ITC Grand Chola Chennai", location: "Guindy, Chennai", state: "Tamil Nadu", rating: 4.9, reviews: "3,420", price: "8200" },
-    { id: 4, image: "/images/h4.jpg", name: "Leela Palace Bangalore", location: "Old Airport Road, Bangalore", state: "Karnataka", rating: 4.5, reviews: "2,876", price: "6800" },
-    { id: 5, image: "/images/h1.jpg", name: "JW Marriott Mumbai Sahar", location: "Andheri East, Mumbai", state: "Maharashtra", rating: 4.7, reviews: "1,890", price: "6500" },
-    { id: 6, image: "/images/h2.jpg", name: "Rambagh Palace Jaipur", location: "Bhawani Singh Road, Jaipur", state: "Rajasthan", rating: 4.8, reviews: "2,100", price: "9500" },
-    { id: 7, image: "/images/h3.jpg", name: "The Oberoi New Delhi", location: "Dr Zakir Hussain Marg, Delhi", state: "Delhi", rating: 4.9, reviews: "3,200", price: "8800" },
-    { id: 8, image: "/images/h4.jpg", name: "Taj Lake Palace Udaipur", location: "Pichola Lake, Udaipur", state: "Rajasthan", rating: 4.9, reviews: "2,650", price: "12000" },
-    { id: 9, image: "/images/h1.jpg", name: "Taj Malabar Resort & Spa", location: "Willingdon Island, Kochi", state: "Kerala", rating: 4.6, reviews: "1,560", price: "7200" },
-    { id: 10, image: "/images/h2.jpg", name: "The Leela Goa", location: "Cavelossim Beach, Goa", state: "Goa", rating: 4.8, reviews: "2,890", price: "8500" },
-    { id: 11, image: "/images/h3.jpg", name: "Wildflower Hall Shimla", location: "Chharabra, Shimla", state: "Himachal Pradesh", rating: 4.7, reviews: "1,234", price: "9800" },
-    { id: 12, image: "/images/h4.jpg", name: "Ananda in the Himalayas", location: "Narendra Nagar, Rishikesh", state: "Uttarakhand", rating: 4.9, reviews: "1,678", price: "15000" },
+    { id: 1, image: "/images/h1.jpg", name: "Mumbai Heritage & Gateway Tour", location: "Colaba, Mumbai", state: "Maharashtra", rating: 4.6, reviews: "2,345", price: "5999" },
+    { id: 2, image: "/images/h2.jpg", name: "Royal Udaipur Lake City Tour", location: "Lake Pichola, Udaipur", state: "Rajasthan", rating: 4.7, reviews: "1,912", price: "7500" },
+    { id: 3, image: "/images/h3.jpg", name: "Chennai Cultural Heritage Tour", location: "Guindy, Chennai", state: "Tamil Nadu", rating: 4.9, reviews: "3,420", price: "8200" },
+    { id: 4, image: "/images/h4.jpg", name: "Bangalore Garden City Experience", location: "Old Airport Road, Bangalore", state: "Karnataka", rating: 4.5, reviews: "2,876", price: "6800" },
+    { id: 5, image: "/images/h1.jpg", name: "Mumbai City Lights & Shopping Tour", location: "Andheri East, Mumbai", state: "Maharashtra", rating: 4.7, reviews: "1,890", price: "6500" },
+    { id: 6, image: "/images/h2.jpg", name: "Jaipur Pink City Royal Tour", location: "Bhawani Singh Road, Jaipur", state: "Rajasthan", rating: 4.8, reviews: "2,100", price: "9500" },
+    { id: 7, image: "/images/h3.jpg", name: "Delhi Historical Monuments Tour", location: "Dr Zakir Hussain Marg, Delhi", state: "Delhi", rating: 4.9, reviews: "3,200", price: "8800" },
+    { id: 8, image: "/images/h4.jpg", name: "Udaipur Romantic Lake Palace Tour", location: "Pichola Lake, Udaipur", state: "Rajasthan", rating: 4.9, reviews: "2,650", price: "12000" },
+    { id: 9, image: "/images/h1.jpg", name: "Kochi Backwaters & Spice Tour", location: "Willingdon Island, Kochi", state: "Kerala", rating: 4.6, reviews: "1,560", price: "7200" },
+    { id: 10, image: "/images/h2.jpg", name: "Goa Beach Paradise Tour", location: "Cavelossim Beach, Goa", state: "Goa", rating: 4.8, reviews: "2,890", price: "8500" },
+    { id: 11, image: "/images/h3.jpg", name: "Shimla Hill Station Retreat", location: "Chharabra, Shimla", state: "Himachal Pradesh", rating: 4.7, reviews: "1,234", price: "9800" },
+    { id: 12, image: "/images/h4.jpg", name: "Rishikesh Yoga & Wellness Retreat", location: "Narendra Nagar, Rishikesh", state: "Uttarakhand", rating: 4.9, reviews: "1,678", price: "15000" },
   ];
 
   const filteredHotels = allHotels.filter((hotel) => {
@@ -78,7 +78,7 @@ function HotelsContent() {
       <main className="pt-20 min-h-screen bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto px-4 py-8">
           <h1 className="text-4xl font-bold mb-8 text-gray-900 dark:text-white">
-            {selectedState && selectedState !== "All States" ? `Hotels in ${selectedState}` : "All Hotels in India"}
+            {selectedState && selectedState !== "All States" ? `Tour Packages in ${selectedState}` : "All Tour Packages in India"}
           </h1>
           
           {/* Search Bar */}
@@ -87,7 +87,7 @@ function HotelsContent() {
               <div className="flex items-center gap-3 border border-gray-300 dark:border-gray-600 rounded-lg px-4 h-12 bg-gray-50 dark:bg-gray-700">
                 <Search className="text-gray-500 dark:text-gray-400 flex-shrink-0" size={20} />
                 <Input 
-                  placeholder="Search hotels..." 
+                  placeholder="Search packages..." 
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="border-0 p-0 h-auto focus-visible:ring-0 bg-transparent" 
@@ -98,6 +98,7 @@ function HotelsContent() {
                 <Calendar className="text-gray-500 dark:text-gray-400 flex-shrink-0" size={20} />
                 <Input 
                   type="date"
+                  placeholder="Travel Date"
                   value={checkIn}
                   onChange={(e) => setCheckIn(e.target.value)}
                   className="border-0 p-0 h-auto focus-visible:ring-0 bg-transparent text-sm" 
@@ -107,7 +108,9 @@ function HotelsContent() {
               <div className="flex items-center gap-3 border border-gray-300 dark:border-gray-600 rounded-lg px-4 h-12 bg-gray-50 dark:bg-gray-700">
                 <Calendar className="text-gray-500 dark:text-gray-400 flex-shrink-0" size={20} />
                 <Input 
-                  type="date"
+                  type="number"
+                  placeholder="Duration (Days)"
+                  min="1"
                   value={checkOut}
                   onChange={(e) => setCheckOut(e.target.value)}
                   className="border-0 p-0 h-auto focus-visible:ring-0 bg-transparent text-sm" 
@@ -118,6 +121,7 @@ function HotelsContent() {
                 <Users className="text-gray-500 dark:text-gray-400 flex-shrink-0" size={20} />
                 <Input 
                   type="number"
+                  placeholder="Travelers"
                   min="1"
                   value={guests}
                   onChange={(e) => setGuests(e.target.value)}
@@ -241,7 +245,7 @@ function HotelsContent() {
                     </div>
                     <div className="text-right">
                       <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">₹{parseInt(hotel.price).toLocaleString()}</span>
-                      <span className="text-gray-500 dark:text-gray-400 text-sm">/night</span>
+                      <span className="text-gray-500 dark:text-gray-400 text-sm">/person</span>
                     </div>
                   </div>
                   <Link href={`/hotels/${hotel.id}`}>
@@ -254,7 +258,7 @@ function HotelsContent() {
 
           {filteredHotels.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-gray-600 dark:text-gray-400 text-lg">No hotels found matching your criteria.</p>
+              <p className="text-gray-600 dark:text-gray-400 text-lg">No tour packages found matching your criteria.</p>
               <Button onClick={clearFilters} className="mt-4">Clear Filters</Button>
             </div>
           )}

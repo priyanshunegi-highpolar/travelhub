@@ -46,7 +46,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero" className="relative h-screen flex items-center justify-center">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center py-20 sm:py-0">
       <video
         autoPlay
         loop
@@ -59,28 +59,28 @@ export default function HeroSection() {
       
       <div className="absolute inset-0 bg-black/50 dark:bg-black/60" />
       
-      <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">
-          Discover Incredible India
+      <div className="relative z-10 mt-10 text-center text-white px-4 sm:px-6 max-w-5xl mx-auto w-full">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 drop-shadow-lg">
+          Discover Your Perfect Tour Package
         </h1>
-        <p className="text-xl md:text-2xl mb-12 drop-shadow-md">
-          Explore 10,000+ hotels and destinations across India at best prices
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 md:mb-12 drop-shadow-md">
+          Explore 500+ curated tour packages across India at unbeatable prices
         </p>
         
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-4 md:p-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-            <div className="relative">
-              <div className="flex flex-col gap-1 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 h-14 bg-gray-50 dark:bg-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition text-left">
-                <label className="text-xs font-semibold text-gray-900 dark:text-white text-left">Where to?</label>
+        <div className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl shadow-2xl p-3 sm:p-4 md:p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3">
+            <div className="relative sm:col-span-2 md:col-span-1">
+              <div className="flex flex-col gap-1 border border-gray-300 dark:border-gray-600 rounded-lg px-3 sm:px-4 py-2 h-12 sm:h-14 bg-gray-50 dark:bg-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition text-left">
+                <label className="text-[10px] sm:text-xs font-semibold text-gray-900 dark:text-white text-left">Destination</label>
                 <Input 
-                  placeholder="Search for a place" 
+                  placeholder="Search destinations" 
                   value={location}
                   onChange={(e) => {
                     setLocation(e.target.value);
                     setShowSuggestions(true);
                   }}
                   onFocus={() => setShowSuggestions(true)}
-                  className="border-0 p-0 h-auto focus-visible:ring-0 bg-transparent text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 text-sm" 
+                  className="border-0 p-0 h-auto focus-visible:ring-0 bg-transparent text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 text-xs sm:text-sm" 
                 />
               </div>
               
@@ -100,36 +100,38 @@ export default function HeroSection() {
               )}
             </div>
             
-            <div className="flex flex-col gap-1 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 h-14 bg-gray-50 dark:bg-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition cursor-pointer text-left">
-              <label className="text-xs font-semibold text-gray-900 dark:text-white text-left">Check-in</label>
+            <div className="flex flex-col gap-1 border border-gray-300 dark:border-gray-600 rounded-lg px-3 sm:px-4 py-2 h-12 sm:h-14 bg-gray-50 dark:bg-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition cursor-pointer text-left">
+              <label className="text-[10px] sm:text-xs font-semibold text-gray-900 dark:text-white text-left">Travel Date</label>
               <Input 
                 type="date"
                 value={checkIn}
                 onChange={(e) => setCheckIn(e.target.value)}
-                className="border-0 p-0 h-auto focus-visible:ring-0 bg-transparent text-gray-900 dark:text-white cursor-pointer text-sm text-left" 
+                className="border-0 p-0 h-auto focus-visible:ring-0 bg-transparent text-gray-900 dark:text-white cursor-pointer text-xs sm:text-sm text-left" 
               />
             </div>
             
-            <div className="flex flex-col gap-1 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 h-14 bg-gray-50 dark:bg-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition cursor-pointer text-left">
-              <label className="text-xs font-semibold text-gray-900 dark:text-white text-left">Check-out</label>
+            <div className="flex flex-col gap-1 border border-gray-300 dark:border-gray-600 rounded-lg px-3 sm:px-4 py-2 h-12 sm:h-14 bg-gray-50 dark:bg-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition cursor-pointer text-left">
+              <label className="text-[10px] sm:text-xs font-semibold text-gray-900 dark:text-white text-left">Duration (Days)</label>
               <Input 
-                type="date"
+                type="number"
+                min="1"
+                placeholder="5"
                 value={checkOut}
                 onChange={(e) => setCheckOut(e.target.value)}
-                className="border-0 p-0 h-auto focus-visible:ring-0 bg-transparent text-gray-900 dark:text-white cursor-pointer text-sm text-left" 
+                className="border-0 p-0 h-auto focus-visible:ring-0 bg-transparent text-gray-900 dark:text-white cursor-pointer text-xs sm:text-sm text-left" 
               />
             </div>
             
-            <div className="flex flex-col gap-1 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 h-14 bg-gray-50 dark:bg-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition text-left">
-              <label className="text-xs font-semibold text-gray-900 dark:text-white text-left">Guests</label>
+            <div className="flex flex-col gap-1 border border-gray-300 dark:border-gray-600 rounded-lg px-3 sm:px-4 py-2 h-12 sm:h-14 bg-gray-50 dark:bg-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition text-left">
+              <label className="text-[10px] sm:text-xs font-semibold text-gray-900 dark:text-white text-left">Travelers</label>
               <Input 
                 type="number" 
-                placeholder="1" 
+                placeholder="2" 
                 min="1"
                 value={guests}
                 onChange={(e) => setGuests(e.target.value)}
                 onKeyDown={(e) => ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()}
-                className="border-0 p-0 h-auto focus-visible:ring-0 bg-transparent text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 text-sm text-left" 
+                className="border-0 p-0 h-auto focus-visible:ring-0 bg-transparent text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 text-xs sm:text-sm text-left" 
               />
             </div>
           </div>
@@ -137,10 +139,10 @@ export default function HeroSection() {
           <Button 
             onClick={handleSearch}
             size="lg" 
-            className="w-full h-14 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-base font-semibold mt-3"
+            className="w-full h-12 sm:h-14 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-sm sm:text-base font-semibold mt-2 sm:mt-3"
           >
-            <Search className="mr-2" size={20} />
-            Search
+            <Search className="mr-2" size={18} />
+            Find Tour Packages
           </Button>
         </div>
       </div>

@@ -8,7 +8,7 @@ export default function WhyChooseUs() {
     {
       icon: DollarSign,
       title: "Best Price Guarantee",
-      description: "We offer the most competitive prices on 10,000+ properties across India",
+      description: "We offer the most competitive prices on 500+ tour packages across India",
       color: "bg-green-500",
       lightColor: "bg-green-100 dark:bg-green-900/30"
     },
@@ -28,8 +28,8 @@ export default function WhyChooseUs() {
     },
     {
       icon: Award,
-      title: "Trusted by Millions",
-      description: "Join millions of satisfied travelers who trust us for their journeys",
+      title: "Trusted by Thousands",
+      description: "Join thousands of satisfied travelers who trust us for their dream vacations",
       color: "bg-orange-500",
       lightColor: "bg-orange-100 dark:bg-orange-900/30"
     }

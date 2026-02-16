@@ -54,7 +54,7 @@ export const hotelsData = [
   {
     id: 1,
     image: "/images/h1.jpg",
-    name: "The Taj Palace Mumbai",
+    name: "Mumbai Heritage & Gateway Tour",
     location: "Colaba, Mumbai",
     rating: 4.6,
     reviews: "2,345",
@@ -63,7 +63,7 @@ export const hotelsData = [
   {
     id: 2,
     image: "/images/h2.jpg",
-    name: "Oberoi Udaipur Luxury Resort",
+    name: "Royal Udaipur Lake City Tour",
     location: "Lake Pichola, Udaipur",
     rating: 4.7,
     reviews: "1,912",
@@ -72,7 +72,7 @@ export const hotelsData = [
   {
     id: 3,
     image: "/images/h3.jpg",
-    name: "ITC Grand Chola Chennai",
+    name: "Chennai Cultural Heritage Tour",
     location: "Guindy, Chennai",
     rating: 4.9,
     reviews: "3,420",
@@ -81,7 +81,7 @@ export const hotelsData = [
   {
     id: 4,
     image: "/images/h4.jpg",
-    name: "Leela Palace Bangalore",
+    name: "Bangalore Garden City Experience",
     location: "Old Airport Road, Bangalore",
     rating: 4.5,
     reviews: "2,876",

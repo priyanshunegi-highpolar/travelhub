@@ -36,7 +36,7 @@ export default function HotelDetailsPage({ params }: { params: Promise<{ id: str
   }> = {
     1: {
       id: 1,
-      name: "The Taj Palace Mumbai",
+      name: "Mumbai Heritage & Gateway Tour",
       location: "Colaba, Mumbai, Maharashtra",
       rating: 4.6,
       reviews: "2,345",
@@ -53,7 +53,7 @@ export default function HotelDetailsPage({ params }: { params: Promise<{ id: str
     },
     2: {
       id: 2,
-      name: "Oberoi Udaipur Luxury Resort",
+      name: "Royal Udaipur Lake City Tour",
       location: "Lake Pichola, Udaipur, Rajasthan",
       rating: 4.7,
       reviews: "1,912",
@@ -70,7 +70,7 @@ export default function HotelDetailsPage({ params }: { params: Promise<{ id: str
     },
     3: {
       id: 3,
-      name: "ITC Grand Chola Chennai",
+      name: "Chennai Cultural Heritage Tour",
       location: "Guindy, Chennai, Tamil Nadu",
       rating: 4.9,
       reviews: "3,420",
@@ -87,7 +87,7 @@ export default function HotelDetailsPage({ params }: { params: Promise<{ id: str
     },
     4: {
       id: 4,
-      name: "Leela Palace Bangalore",
+      name: "Bangalore Garden City Experience",
       location: "Old Airport Road, Bangalore, Karnataka",
       rating: 4.5,
       reviews: "2,876",
@@ -104,7 +104,7 @@ export default function HotelDetailsPage({ params }: { params: Promise<{ id: str
     },
     5: {
       id: 5,
-      name: "JW Marriott Mumbai Sahar",
+      name: "Mumbai City Lights & Shopping Tour",
       location: "Andheri East, Mumbai, Maharashtra",
       rating: 4.7,
       reviews: "1,890",
@@ -121,7 +121,7 @@ export default function HotelDetailsPage({ params }: { params: Promise<{ id: str
     },
     6: {
       id: 6,
-      name: "Rambagh Palace Jaipur",
+      name: "Jaipur Pink City Royal Tour",
       location: "Bhawani Singh Road, Jaipur, Rajasthan",
       rating: 4.8,
       reviews: "2,100",
@@ -138,7 +138,7 @@ export default function HotelDetailsPage({ params }: { params: Promise<{ id: str
     },
     7: {
       id: 7,
-      name: "The Oberoi New Delhi",
+      name: "Delhi Historical Monuments Tour",
       location: "Dr Zakir Hussain Marg, Delhi",
       rating: 4.9,
       reviews: "3,200",
@@ -155,7 +155,7 @@ export default function HotelDetailsPage({ params }: { params: Promise<{ id: str
     },
     8: {
       id: 8,
-      name: "Taj Lake Palace Udaipur",
+      name: "Udaipur Romantic Lake Palace Tour",
       location: "Pichola Lake, Udaipur, Rajasthan",
       rating: 4.9,
       reviews: "2,650",
@@ -172,7 +172,7 @@ export default function HotelDetailsPage({ params }: { params: Promise<{ id: str
     },
     9: {
       id: 9,
-      name: "Taj Malabar Resort & Spa",
+      name: "Kochi Backwaters & Spice Tour",
       location: "Willingdon Island, Kochi, Kerala",
       rating: 4.6,
       reviews: "1,560",
@@ -189,7 +189,7 @@ export default function HotelDetailsPage({ params }: { params: Promise<{ id: str
     },
     10: {
       id: 10,
-      name: "The Leela Goa",
+      name: "Goa Beach Paradise Tour",
       location: "Cavelossim Beach, Goa",
       rating: 4.8,
       reviews: "2,890",
@@ -206,7 +206,7 @@ export default function HotelDetailsPage({ params }: { params: Promise<{ id: str
     },
     11: {
       id: 11,
-      name: "Wildflower Hall Shimla",
+      name: "Shimla Hill Station Retreat",
       location: "Chharabra, Shimla, Himachal Pradesh",
       rating: 4.7,
       reviews: "1,234",
@@ -223,7 +223,7 @@ export default function HotelDetailsPage({ params }: { params: Promise<{ id: str
     },
     12: {
       id: 12,
-      name: "Ananda in the Himalayas",
+      name: "Rishikesh Yoga & Wellness Retreat",
       location: "Narendra Nagar, Rishikesh, Uttarakhand",
       rating: 4.9,
       reviews: "1,678",
@@ -242,20 +242,15 @@ export default function HotelDetailsPage({ params }: { params: Promise<{ id: str
 
   const hotel = hotelDetails[id] || hotelDetails["1"];
 
-  const calculateNights = () => {
-    if (!checkIn || !checkOut) return 0;
-    const start = new Date(checkIn);
-    const end = new Date(checkOut);
-    const nights = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
-    return nights > 0 ? nights : 0;
+  const calculateTotalPrice = () => {
+    if (!guests) return 0;
+    const basePrice = parseInt(hotel.price.replace(/,/g, ''));
+    return basePrice * guests;
   };
 
-  const nights = calculateNights();
-  const basePrice = parseInt(hotel.price.replace(/,/g, ''));
-  const roomTotal = basePrice * nights;
-  const serviceFee = nights > 0 ? 500 : 0;
-  const taxes = Math.round(roomTotal * 0.12);
-  const totalAmount = roomTotal + serviceFee + taxes;
+  const totalPrice = calculateTotalPrice();
+  const gst = Math.round(totalPrice * 0.05);
+  const totalAmount = totalPrice + gst;
 
   const amenityIcons: Record<string, React.ComponentType<{ className?: string }>> = {
     "Free WiFi": Wifi,
@@ -276,7 +271,7 @@ export default function HotelDetailsPage({ params }: { params: Promise<{ id: str
         <div className="container mx-auto px-4 py-8">
           <div className="flex items-center justify-between mb-6">
             <Link href="/hotels" className="flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline font-medium transition">
-              ← Back to Hotels
+              ← Back to Packages
             </Link>
             <div className="flex gap-3">
               <Button 
@@ -433,10 +428,10 @@ export default function HotelDetailsPage({ params }: { params: Promise<{ id: str
               <Card className="sticky top-24 bg-white dark:bg-gray-800 border-0 shadow-2xl">
                 <CardContent className="p-8">
                   <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
-                    <div className="text-sm text-gray-500 dark:text-gray-400 mb-2">Starting from</div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400 mb-2">Package Price</div>
                     <div className="flex items-baseline gap-2">
                       <span className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">₹{hotel.price}</span>
-                      <span className="text-gray-500 dark:text-gray-400">/night</span>
+                      <span className="text-gray-500 dark:text-gray-400">/person</span>
                     </div>
                     <div className="flex items-center gap-2 mt-2 text-sm text-green-600 dark:text-green-400">
                       <Award className="h-4 w-4" />
@@ -448,7 +443,7 @@ export default function HotelDetailsPage({ params }: { params: Promise<{ id: str
                     <div>
                       <label className="text-sm font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
                         <Calendar className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-                        Check-in Date
+                        Travel Date
                       </label>
                       <input 
                         type="date" 
@@ -460,26 +455,13 @@ export default function HotelDetailsPage({ params }: { params: Promise<{ id: str
                     </div>
                     <div>
                       <label className="text-sm font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                        <Calendar className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-                        Check-out Date
-                      </label>
-                      <input 
-                        type="date" 
-                        value={checkOut}
-                        onChange={(e) => setCheckOut(e.target.value)}
-                        min={checkIn || new Date().toISOString().split('T')[0]}
-                        className="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 transition" 
-                      />
-                    </div>
-                    <div>
-                      <label className="text-sm font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
                         <Users className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-                        Number of Guests
+                        Number of Travelers
                       </label>
                       <input 
                         type="number" 
                         min="1" 
-                        max="10"
+                        max="20"
                         value={guests}
                         onChange={(e) => setGuests(parseInt(e.target.value) || 1)}
                         className="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 transition" 
@@ -488,35 +470,27 @@ export default function HotelDetailsPage({ params }: { params: Promise<{ id: str
                   </div>
 
                   <Button className="w-full mb-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all" size="lg">
-                    Book Now
+                    Book Package Now
                   </Button>
-                  <Button variant="outline" className="w-full border-2 hover:bg-gray-50 dark:hover:bg-gray-700 transition">Contact Hotel</Button>
+                  <Button variant="outline" className="w-full border-2 hover:bg-gray-50 dark:hover:bg-gray-700 transition">Enquire Now</Button>
                   
                   <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
                     <div className="flex items-center gap-2 text-blue-700 dark:text-blue-400 text-sm">
                       <Shield className="h-4 w-4" />
-                      <span className="font-medium">Free cancellation up to 24 hours before check-in</span>
+                      <span className="font-medium">Free cancellation up to 7 days before travel</span>
                     </div>
                   </div>
 
-                  {nights > 0 && (
+                  {guests > 0 && (
                     <div className="mt-6 pt-6 border-t-2 border-gray-200 dark:border-gray-700">
                       <div className="space-y-3 mb-4">
                         <div className="flex justify-between text-sm">
-                          <span className="text-gray-600 dark:text-gray-400">₹{hotel.price} × {nights} {nights === 1 ? 'night' : 'nights'}</span>
-                          <span className="text-gray-900 dark:text-white font-medium">₹{roomTotal.toLocaleString()}</span>
+                          <span className="text-gray-600 dark:text-gray-400">₹{hotel.price} × {guests} {guests === 1 ? 'traveler' : 'travelers'}</span>
+                          <span className="text-gray-900 dark:text-white font-medium">₹{totalPrice.toLocaleString()}</span>
                         </div>
                         <div className="flex justify-between text-sm">
-                          <span className="text-gray-600 dark:text-gray-400">Service fee</span>
-                          <span className="text-gray-900 dark:text-white font-medium">₹{serviceFee}</span>
-                        </div>
-                        <div className="flex justify-between text-sm">
-                          <span className="text-gray-600 dark:text-gray-400">Taxes & charges (12%)</span>
-                          <span className="text-gray-900 dark:text-white font-medium">₹{taxes.toLocaleString()}</span>
-                        </div>
-                        <div className="flex justify-between text-sm">
-                          <span className="text-gray-600 dark:text-gray-400">Guests</span>
-                          <span className="text-gray-900 dark:text-white font-medium">{guests} {guests === 1 ? 'guest' : 'guests'}</span>
+                          <span className="text-gray-600 dark:text-gray-400">GST (5%)</span>
+                          <span className="text-gray-900 dark:text-white font-medium">₹{gst.toLocaleString()}</span>
                         </div>
                       </div>
                       <div className="flex justify-between items-center font-bold text-xl pt-4 border-t-2 border-gray-200 dark:border-gray-700">
